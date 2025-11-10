@@ -1,0 +1,52 @@
+Resultats de la reproduction de l'analyse de l'equipe 27:
+                          Poisson Regression Results                          
+==============================================================================
+Dep. Variable:               redCards   No. Observations:               116014
+Model:                        Poisson   Df Residuals:                   115996
+Method:                           MLE   Df Model:                           17
+Date:                Mon, 10 Nov 2025   Pseudo R-squ.:                0.007824
+Time:                        10:55:19   Log-Likelihood:                -7240.0
+converged:                       True   LL-Null:                       -7297.1
+Covariance Type:            nonrobust   LLR p-value:                 1.965e-16
+======================================================================================================
+                                         coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------
+Intercept                             -7.5088      0.790     -9.505      0.000      -9.057      -5.960
+positionGroup[T.Goalkeeper]            0.0383      0.133      0.288      0.774      -0.223       0.300
+positionGroup[T.Midfield]             -0.5870      0.106     -5.558      0.000      -0.794      -0.380
+positionGroup[T.Offence]              -0.1680      0.225     -0.746      0.456      -0.610       0.274
+positionGroup[T.Offense]              -0.4165      0.126     -3.314      0.001      -0.663      -0.170
+rating                                 2.1084      1.525      1.382      0.167      -0.881       5.098
+rating:positionGroup[T.Goalkeeper]    -0.9424      0.536     -1.759      0.079      -1.993       0.108
+rating:positionGroup[T.Midfield]       0.4554      0.277      1.644      0.100      -0.088       0.998
+rating:positionGroup[T.Offence]       -0.1720      0.427     -0.403      0.687      -1.009       0.664
+rating:positionGroup[T.Offense]        0.0743      0.259      0.287      0.774      -0.434       0.583
+goals                                 -0.0251      0.027     -0.926      0.355      -0.078       0.028
+rating:goals                          -0.0098      0.065     -0.149      0.881      -0.138       0.118
+yellowCards                            0.0588      0.026      2.249      0.025       0.008       0.110
+rating:yellowCards                    -0.1284      0.072     -1.779      0.075      -0.270       0.013
+meanIAT                                0.0607      0.026      2.309      0.021       0.009       0.112
+rating:meanIAT                        -0.0547      0.051     -1.071      0.284      -0.155       0.045
+meanExp                               -0.0001      0.004     -0.037      0.970      -0.007       0.007
+rating:meanExp                         0.0039      0.008      0.514      0.607      -0.011       0.019
+======================================================================================================
+Intercept                             0.000548
+positionGroup[T.Goalkeeper]           1.039091
+positionGroup[T.Midfield]             0.555981
+positionGroup[T.Offence]              0.845336
+positionGroup[T.Offense]              0.659383
+rating                                8.235204
+rating:positionGroup[T.Goalkeeper]    0.389701
+rating:positionGroup[T.Midfield]      1.576794
+rating:positionGroup[T.Offence]       0.841944
+rating:positionGroup[T.Offense]       1.077177
+goals                                 0.975218
+rating:goals                          0.990290
+yellowCards                           1.060577
+rating:yellowCards                    0.879504
+meanIAT                               1.062622
+rating:meanIAT                        0.946804
+meanExp                               0.999861
+rating:meanExp                        1.003863
+dtype: float64
+

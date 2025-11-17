@@ -1,0 +1,195 @@
+> #Preparing for Analysis 
+> #Look at skin tone ratings - interrater reliability?
+> cor.test(data[,18], data[,19]) 
+
+	Pearson's product-moment correlation
+
+data:  data[, 18] and data[, 19]
+t = 849.67, df = 124619, p-value < 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.9226459 0.9242805
+sample estimates:
+      cor 
+0.9234674 
+
+> 
+> data$rater1skincolor = ifelse(data$rater1 < .5, "light skin", ifelse(data$rater1 > .5, "dark skin", NA))
+> data$rater2skincolor = ifelse(data$rater2 < .5, "light skin", ifelse(data$rater2 > .5, "dark skin", NA))
+> 
+> 
+> kappa2(data[,28:29])
+ Cohen's Kappa for 2 Raters (Weights: unweighted)
+
+ Subjects = 110979 
+   Raters = 2 
+    Kappa = 0 
+
+        z = NaN 
+  p-value = NaN 
+> 
+> #merge the ratings into a single score 
+> data$skinrating = rowMeans(data[,18:19])
+> 
+> summary(data$skinrating)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0000  0.0000  0.2500  0.2836  0.3750  1.0000   21407 
+> hist(data$skinrating)
+> 	#not normally distributed, more light than dark skined players
+> 
+> #RESEARCH QUESTION 1: Are soccer refs more likely to give red cards to dark skinned versus light skinned players?
+> 
+> #make it a dichotomous variable based on < or > .5 (leaving out the ones with neutral or ambiguous skin color) Raters rate all the pics - how they percieve the 4 versus 5 (or 2 versus 1) may change over ratings. Only 2 raters.
+> 
+> hist(data$redCards)
+> #Red cards are an infrequent events, best suited to poisson distribution
+> mean(data$redCards)
+[1] 0.01255924
+> var(data$redCards) 
+[1] 0.01274399
+> 	#mean and variance are about the same 
+> 
+> #need to take red cards relative to number of games played in the model, as probability of getting a red card increases with the number of games played. Also seems to be difference due to position (for example, goalkeeper may be much less likely to get a red card than offensive players)
+> 
+> posglmer2 = glmer(redCards ~ skinrating + position + (1|refNum) + (1|player), data=data, offset=log(games), family="poisson", verbose=TRUE, nAGQ = 0)	
+start par. =  1 1 fn =  14601.78 
+At return
+eval:  35 fn:      14354.271 par: 0.348579 0.508665
+> 	#need to change the nAGQ variable to 1 and run overnight
+> summary(posglmer2)
+Generalized linear mixed model fit by maximum likelihood (Adaptive Gauss-Hermite Quadrature, nAGQ = 0) ['glmerMod']
+ Family: poisson  ( log )
+Formula: redCards ~ skinrating + position + (1 | refNum) + (1 | player)
+   Data: data
+ Offset: log(games)
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  14384.3   14529.2   -7177.1   14354.3    116145 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.5545 -0.1160 -0.0781 -0.0598 20.6843 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ refNum (Intercept) 0.1215   0.3486  
+ player (Intercept) 0.2587   0.5087  
+Number of obs: 116160, groups:  refNum, 2917; player, 1420
+
+Fixed effects:
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -6.07550    0.12768 -47.585  < 2e-16 ***
+skinrating                    0.33051    0.10694   3.091 0.001998 ** 
+positionCenter Back           0.94602    0.13839   6.836 8.14e-12 ***
+positionCenter Forward        0.27452    0.15222   1.803 0.071319 .  
+positionCenter Midfielder     0.39760    0.19769   2.011 0.044303 *  
+positionDefensive Midfielder  0.44231    0.15176   2.915 0.003561 ** 
+positionGoalkeeper            0.56046    0.15763   3.556 0.000377 ***
+positionLeft Fullback         0.54821    0.16344   3.354 0.000796 ***
+positionLeft Midfielder       0.36147    0.18242   1.982 0.047530 *  
+positionLeft Winger          -0.01164    0.21882  -0.053 0.957561    
+positionRight Fullback        0.36310    0.16813   2.160 0.030803 *  
+positionRight Midfielder     -0.02412    0.21875  -0.110 0.912213    
+positionRight Winger          0.37066    0.19380   1.913 0.055803 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+> ## Question 2
+> #Research Question 2: Are soccer referees from countries high in skintone prejudice more likely to award red cards to dark skin toned players?
+> 
+> 
+> posglmer4 = glmer(redCards ~ skinrating*meanIAT + position + (1|refNum) + (1|player), data=data, offset=log(games), family="poisson", verbose=TRUE, nAGQ=0)
+start par. =  1 1 fn =  14597.49 
+At return
+eval:  34 fn:      14343.185 par: 0.320605 0.502296
+> 	#need to change nAGQ to 1
+> summary(posglmer4)
+Generalized linear mixed model fit by maximum likelihood (Adaptive Gauss-Hermite Quadrature, nAGQ = 0) ['glmerMod']
+ Family: poisson  ( log )
+Formula: redCards ~ skinrating * meanIAT + position + (1 | refNum) + (1 |      player)
+   Data: data
+ Offset: log(games)
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  14377.2   14541.4   -7171.6   14343.2    115997 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.5525 -0.1165 -0.0785 -0.0602 21.4584 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ refNum (Intercept) 0.1028   0.3206  
+ player (Intercept) 0.2523   0.5023  
+Number of obs: 116014, groups:  refNum, 2906; player, 1420
+
+Fixed effects:
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -7.65945    0.62797 -12.197  < 2e-16 ***
+skinrating                    1.01887    1.16200   0.877 0.380584    
+meanIAT                       4.53873    1.76208   2.576 0.010001 *  
+positionCenter Back           0.94902    0.13808   6.873 6.28e-12 ***
+positionCenter Forward        0.26942    0.15191   1.774 0.076138 .  
+positionCenter Midfielder     0.40431    0.19696   2.053 0.040098 *  
+positionDefensive Midfielder  0.44452    0.15143   2.936 0.003330 ** 
+positionGoalkeeper            0.56574    0.15732   3.596 0.000323 ***
+positionLeft Fullback         0.54749    0.16302   3.358 0.000784 ***
+positionLeft Midfielder       0.35939    0.18200   1.975 0.048307 *  
+positionLeft Winger          -0.01502    0.21836  -0.069 0.945154    
+positionRight Fullback        0.36209    0.16777   2.158 0.030911 *  
+positionRight Midfielder     -0.02082    0.21834  -0.095 0.924039    
+positionRight Winger          0.36733    0.19325   1.901 0.057329 .  
+skinrating:meanIAT           -1.95345    3.35638  -0.582 0.560560    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation matrix not shown by default, as p = 15 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+> 
+> posglmer5 = glmer(redCards ~ skinrating*meanExp + position + (1|refNum) + (1|player), data=data, offset=log(games), family="poisson", verbose=TRUE, nAGQ=0)
+start par. =  1 1 fn =  14598.61 
+At return
+eval:  32 fn:      14346.284 par: 0.330163 0.504440
+> 	#need to change nAGQ to 1
+> summary(posglmer5)
+Generalized linear mixed model fit by maximum likelihood (Adaptive Gauss-Hermite Quadrature, nAGQ = 0) ['glmerMod']
+ Family: poisson  ( log )
+Formula: redCards ~ skinrating * meanExp + position + (1 | refNum) + (1 |      player)
+   Data: data
+ Offset: log(games)
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  14380.3   14544.5   -7173.1   14346.3    115997 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.5531 -0.1163 -0.0786 -0.0602 20.9992 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ refNum (Intercept) 0.1090   0.3302  
+ player (Intercept) 0.2545   0.5044  
+Number of obs: 116014, groups:  refNum, 2906; player, 1420
+
+Fixed effects:
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -6.27106    0.16865 -37.185  < 2e-16 ***
+skinrating                    0.30887    0.23702   1.303 0.192530    
+meanExp                       0.42192    0.24086   1.752 0.079813 .  
+positionCenter Back           0.94707    0.13819   6.854  7.2e-12 ***
+positionCenter Forward        0.26956    0.15202   1.773 0.076206 .  
+positionCenter Midfielder     0.39924    0.19720   2.025 0.042916 *  
+positionDefensive Midfielder  0.44320    0.15155   2.924 0.003450 ** 
+positionGoalkeeper            0.56531    0.15744   3.591 0.000330 ***
+positionLeft Fullback         0.54763    0.16318   3.356 0.000791 ***
+positionLeft Midfielder       0.36086    0.18217   1.981 0.047603 *  
+positionLeft Winger          -0.01316    0.21849  -0.060 0.951966    
+positionRight Fullback        0.36460    0.16789   2.172 0.029884 *  
+positionRight Midfielder     -0.02251    0.21849  -0.103 0.917944    
+positionRight Winger          0.36770    0.19344   1.901 0.057322 .  
+skinrating:meanExp            0.07213    0.48651   0.148 0.882143    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

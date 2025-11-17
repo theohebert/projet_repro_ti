@@ -4,8 +4,8 @@ Resultats de la reproduction de l'analyse de l'equipe 27:
 Dep. Variable:               redCards   No. Observations:               116014
 Model:                        Poisson   Df Residuals:                   115996
 Method:                           MLE   Df Model:                           17
-Date:                Mon, 10 Nov 2025   Pseudo R-squ.:                0.007824
-Time:                        10:55:19   Log-Likelihood:                -7240.0
+Date:                Mon, 17 Nov 2025   Pseudo R-squ.:                0.007824
+Time:                        08:17:57   Log-Likelihood:                -7240.0
 converged:                       True   LL-Null:                       -7297.1
 Covariance Type:            nonrobust   LLR p-value:                 1.965e-16
 ======================================================================================================

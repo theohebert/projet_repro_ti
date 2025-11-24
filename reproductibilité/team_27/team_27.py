@@ -25,8 +25,8 @@ redCards = [float(row["redCards"]) for row in data]
 #np, bins, patches = p.hist(redCards,bins=5,range=(0,5))
 #p.show()
 
-print(np.var([float(row["redCards"]) for row in data]))
-print(np.mean([float(row["redCards"]) for row in data]))
+#print(np.var([float(row["redCards"]) for row in data]))
+#print(np.mean([float(row["redCards"]) for row in data]))
 
 # Check IRR of ratings
 rater1 = [float(row["rater1"]) for row in data if "NA" not in [row["rater1"],row["rater2"]]]
@@ -102,4 +102,4 @@ def test_question(y, X, exposure_array,results):
 
 results= test_question(y, X, exposure_array,results)
 
-ecriture_fichier("./reproductibilité/team_27/team_27_results.txt", results)
+ecriture_fichier("./team_27_results.txt", results)

@@ -1,0 +1,13 @@
+Rating Coeff:  1.075729 
+Rating Coeff CIs : -2.22111 4.36513 
+IRR:  2.932131 
+IRR CI:  0.1084886 78.6596 
+meanIAT*Rating Coeff:  -4.18097 
+meanIAT*Rating Coeff CIs : -14.55545 6.144645 
+IRR:  0.01528367 
+IRR CI:  4.771434e-07 466.2143 
+meanExp*Rating Coeff:  0.5723423 
+meanExp*Rating Coeff CIs : -0.9623739 2.082126 
+IRR:  1.772414 
+IRR CI:  0.381985 8.021506 
+

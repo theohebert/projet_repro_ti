@@ -10,6 +10,8 @@ Nous avons aussi du changer une fonction et ajouter une librairie (la fonction c
 
 Dans un premier temps nous avons fait tourner les modèles avec le réglage de nAGC =0 (comme ils l'ont fait dans leur code). Les résultats obtenus sont déjà très proches de ceux que l'équipe 13 a fourni dans son papier et nous permettent d'arriver à la même conclusion qu'eux (les arbitres ont tendance à donner plus de cartons rouges aux joueurs ayant la peau foncée).
 
+## nAGC=0
+
 ### Resultats obtenus pour la première Question
 
 #### Are soccer referees more likely to give red cards to dark skin toned players than light skin toned players?
@@ -45,3 +47,6 @@ suggesting that the general skintone bias found in the distribution of red cards
 On ne retrouve donc pas les mêmes résultats du tout mais on retrouve bien le fait que les résultats ne sont pas significatifs. On peut donc arriver à la même conclusion que l'équipe 13 en utilisant leur protocole.
 
 Ces différences dans les résultats peuvent s'expliquer par la version différente de R et le nAGQ qui est à 0 dans notre cas.
+
+## nAGC=1
+

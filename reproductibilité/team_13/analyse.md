@@ -1,9 +1,10 @@
 # Team 13
+
 L'equipe 13 a choisi d'utiliser R pour effectuer son analyse. L'OS utilisé ainsi que la version de R sont précisés: "All analyses were conducted using R 3.0.2 on OSX 10.9.3 and an alpha of .05 was used for all tests". Dans un premier temps, nous utilisons und version récente de R afin de tester le code sans avoir a télécharger une version ancienne. Nous n'avons pas accès à OSX, nos tests seront executés sur ubuntu 22.04.
 
 ## Version recente de R
 
-L'équipe utilise le reglage nAGC=1 (Adaptive Gauss-Hermite Quadrature) pour plus de precisions dans ses calculs, les résultats fournis sont donc ceux issus des calculs utilisant ce réglage. Cependant ce réglage implique que le code nécessite de tourner pendant la nuit car l'execution est très longue. 
+L'équipe utilise le reglage nAGC=1 (Adaptive Gauss-Hermite Quadrature) pour plus de precisions dans ses calculs, les résultats fournis sont donc ceux issus des calculs utilisant ce réglage. Cependant ce réglage implique que le code nécessite de tourner pendant la nuit car l'execution est très longue.
 
 Nous avons aussi du changer une fonction et ajouter une librairie (la fonction ckappa n'était pas reconnue, nous avons fait le choix d'utiliser kappa2 de la librairie 'irr' à la place).
 
@@ -29,11 +30,18 @@ On retrouve des resultats proches (mais pas identiques !). Cependant étant donn
 
 Pour cette première question nos resultats avec une version récente de R et nAGC sont les suivants (disponibles dans le fichier "resultats_nADQ=0.txt"):
 meanAIC:
+exp(β)=2.77[95%CI:0.284-27.05], z = 0.877, p=.38
 
-exp(β)=2.77[...]
 meanExp:
-
+exp(β)=1.36[95%CI:0.856-2.167], z = 1.303 p=.19
 
 Les resultats de l'équipe de recherche pour cette question étaient les suivants:
 
-Neither interaction was significant, IAT: exp(β) = 0.13[95% CI .0002–68.06],z =-0.65, p = .52; Exp: exp(β) = 1.09[95% CI 0.42–2.84], z = 0.18 , p = .86, suggesting that the general skintone bias found in the distribution of red cards was not influenced by whether the referee was from a country high in skintone prejudice.   
+Neither interaction was significant, 
+IAT: exp(β) = 0.13[95% CI .0002–68.06],z =-0.65, p = .52; 
+Exp: exp(β) = 1.09[95% CI 0.42–2.84], z = 0.18 , p = .86, 
+suggesting that the general skintone bias found in the distribution of red cards was not influenced by whether the referee was from a country high in skintone prejudice.
+
+On ne retrouve donc pas les mêmes résultats du tout mais on retrouve bien le fait que les résultats ne sont pas significatifs. On peut donc arriver à la même conclusion que l'équipe 13 en utilisant leur protocole.
+
+Ces différences dans les résultats peuvent s'expliquer par la version différente de R et le nAGQ qui est à 0 dans notre cas.

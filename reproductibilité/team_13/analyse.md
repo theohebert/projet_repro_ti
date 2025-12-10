@@ -39,14 +39,11 @@ exp(β)=1.36[95%CI:0.856-2.167], z = 1.303 p=.19
 
 Les resultats de l'équipe de recherche pour cette question étaient les suivants:
 
-Neither interaction was significant, 
-IAT: exp(β) = 0.13[95% CI .0002–68.06],z =-0.65, p = .52; 
-Exp: exp(β) = 1.09[95% CI 0.42–2.84], z = 0.18 , p = .86, 
+Neither interaction was significant,
+IAT: exp(β) = 0.13[95% CI .0002–68.06],z =-0.65, p = .52;
+Exp: exp(β) = 1.09[95% CI 0.42–2.84], z = 0.18 , p = .86,
 suggesting that the general skintone bias found in the distribution of red cards was not influenced by whether the referee was from a country high in skintone prejudice.
 
 On ne retrouve donc pas les mêmes résultats du tout mais on retrouve bien le fait que les résultats ne sont pas significatifs. On peut donc arriver à la même conclusion que l'équipe 13 en utilisant leur protocole.
 
-Ces différences dans les résultats peuvent s'expliquer par la version différente de R et le nAGQ qui est à 0 dans notre cas.
-
-## nAGC=1
-
+Ces différences dans les résultats peuvent s'expliquer par la version différente de R et le nAGQ qui est à 0 dans notre cas. Etant donné la durée de traitement necessaire avec le nAGQ à 1, nous avons décidé de ne pas aller plus loin dans cette voie.

@@ -74,8 +74,6 @@ dev.off()
 
 # glmer fits for research question 1 (gm3 best model): 
 
-if(FALSE){
-
 print("Calculating gm0")
 gm0 <- glmer(redCards ~ 1+(1 |playerShort) + (1|refNum), 
              family = binomial, data = data.games.nona,nAGQ=0)
@@ -90,7 +88,6 @@ print("Calculating gm2")
 gm2 <- glmer(redCards ~ 1+avgrate01+(1 |playerShort) + (1+avgrate01|refNum), 
              family = binomial, data = data.games.nona,nAGQ=0) 
 print(summary(gm2))
-}
 
 print("Calculating gm3")
 gm3 <- glmer(redCards ~ 1+avgrate01+(1 |playerShort) + (1|refNum) + (1+avgrate01|refCountry), 
@@ -103,17 +100,17 @@ refag<-aggregate(data.games.nona$meanIAT,list(data.games.nona$refCountry),mean)
 colnames(refag)<-c("refCountry","meanIAT")
 
 refag$ranefavgrate01 = NA
-refag$ranefavgrate01<-ranef(gm3,drop=FALSE)$refCountry[,2] 
+refag$ranefavgrate01<-ranef(gm3,drop=F)$refCountry[,2] 
 
 png("results/scatter_random_effects_with_meanIAT.png")
 scatter.smooth(refag$meanIAT,refag$ranefavgrate01,xlab="meanIAT",ylab="Random Efects Avgrate01 from gm3")
 dev.off()
 
 print("Calculating gm4")
-#gm4 <- glmer(redCards ~ 1+avgrate01*meanIAT+(1 |playerShort) + (1|refNum) + (1+avgrate01|refCountry), 
-#             family = binomial, data = data.games.nona,nAGQ=0)
+gm4 <- glmer(redCards ~ 1+avgrate01*meanIAT+(1 |playerShort) + (1|refNum) + (1+avgrate01|refCountry), 
+             family = binomial, data = data.games.nona,nAGQ=0)
 
-#print(summary(gm4))
+print(summary(gm4))
 
 # Research Question 2b: / # scatterplot of meanIAT and random effects of avgrate01 at the level of refCountry:
 
@@ -129,6 +126,6 @@ dev.off()
 
 
 print("Calculating gm5")
-#gm5 <- glmer(redCards ~ 1+avgrate01*meanExp+(1 |playerShort) + (1|refNum) + (1+avgrate01|refCountry), 
-#                                              family = binomial, data = data.games.nona,nAGQ=0) 
-#print(summary(gm5))
+gm5 <- glmer(redCards ~ 1+avgrate01*meanExp+(1 |playerShort) + (1|refNum) + (1+avgrate01|refCountry), 
+                                              family = binomial, data = data.games.nona,nAGQ=0) 
+print(summary(gm5))

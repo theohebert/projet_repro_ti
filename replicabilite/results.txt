@@ -1,0 +1,49 @@
+Resultats de la reproduction de l'analyse de l'equipe 27:
+                          Poisson Regression Results                          
+==============================================================================
+Dep. Variable:               redCards   No. Observations:               116014
+Model:                        Poisson   Df Residuals:                   116008
+Method:                           MLE   Df Model:                            5
+Date:                Mon, 24 Nov 2025   Pseudo R-squ.:                0.005309
+Time:                        11:58:17   Log-Likelihood:                -7258.3
+converged:                       True   LL-Null:                       -7297.1
+Covariance Type:            nonrobust   LLR p-value:                 2.830e-15
+===============================================================================================
+                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------
+Intercept                      -5.3504      0.045   -119.957      0.000      -5.438      -5.263
+positionGroup[T.Goalkeeper]    -0.1555      0.092     -1.694      0.090      -0.335       0.024
+positionGroup[T.Midfield]      -0.4962      0.073     -6.814      0.000      -0.639      -0.353
+positionGroup[T.Offence]       -0.2844      0.132     -2.149      0.032      -0.544      -0.025
+positionGroup[T.Offense]       -0.4348      0.077     -5.642      0.000      -0.586      -0.284
+rating                          0.2649      0.089      2.965      0.003       0.090       0.440
+===============================================================================================
+
+Resultats de la reproduction de l'analyse de l'equipe 27:
+                          Poisson Regression Results                          
+==============================================================================
+Dep. Variable:               redCards   No. Observations:               116014
+Model:                        Poisson   Df Residuals:                   116008
+Method:                           MLE   Df Model:                            5
+Date:                Mon, 24 Nov 2025   Pseudo R-squ.:                0.005309
+Time:                        11:58:17   Log-Likelihood:                -7258.3
+converged:                       True   LL-Null:                       -7297.1
+Covariance Type:            nonrobust   LLR p-value:                 2.830e-15
+===============================================================================================
+                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------
+Intercept                      -5.3504      0.045   -119.957      0.000      -5.438      -5.263
+positionGroup[T.Goalkeeper]    -0.1555      0.092     -1.694      0.090      -0.335       0.024
+positionGroup[T.Midfield]      -0.4962      0.073     -6.814      0.000      -0.639      -0.353
+positionGroup[T.Offence]       -0.2844      0.132     -2.149      0.032      -0.544      -0.025
+positionGroup[T.Offense]       -0.4348      0.077     -5.642      0.000      -0.586      -0.284
+rating                          0.2649      0.089      2.965      0.003       0.090       0.440
+===============================================================================================
+Intercept                      0.004746
+positionGroup[T.Goalkeeper]    0.855969
+positionGroup[T.Midfield]      0.608825
+positionGroup[T.Offence]       0.752464
+positionGroup[T.Offense]       0.647391
+rating                         1.303279
+dtype: float64
+

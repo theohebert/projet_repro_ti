@@ -12,7 +12,7 @@ def ecriture_fichier(nom_fichier, contenu):
 
 results = "Resultats de la reproduction de l'analyse de l'equipe 27:\n"
 
-data_reader = csv.DictReader(open('../DATA/CrowdstormingDataJuly1st.csv', 'r'))   # Open datafile
+data_reader = csv.DictReader(open('../../DATA/CrowdstormingDataJuly1st.csv', 'r'))   # Open datafile
 data = []
 for c,row in enumerate(data_reader):    # Create list of dics from the DictReader object
     data.append(row)
@@ -27,7 +27,7 @@ rater1 = [float(row["rater1"]) for row in data if "NA" not in [row["rater1"],row
 rater2 = [float(row["rater2"]) for row in data if "NA" not in [row["rater1"],row["rater2"]]]
 
 
-df = pandas.read_csv('../DATA/CrowdstormingDataJuly1st.csv')
+df = pandas.read_csv('../../DATA/CrowdstormingDataJuly1st.csv')
 keys = ['playerShort','refNum','games','goals','yellowCards','redCards','position','meanIAT','meanExp', 'rater1', 'rater2','club','leagueCountry','weight']
 df = df[keys]
 

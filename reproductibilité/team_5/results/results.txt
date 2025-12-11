@@ -171,7 +171,7 @@ Random effects:
  Groups      Name        Variance Std.Dev. Corr 
  refNum      (Intercept) 0.06891  0.2625        
  playerShort (Intercept) 0.27955  0.5287        
- refCountry  (Intercept) 0.39332  0.6272        
+ refCountry  (Intercept) 0.39333  0.6272        
              avgrate01   0.06415  0.2533   -0.94
 Number of obs: 372880, groups:  
 refNum, 2967; playerShort, 1585; refCountry, 155
@@ -180,8 +180,8 @@ Fixed effects:
                   Estimate Std. Error z value Pr(>|z|)    
 (Intercept)        -6.1994     0.9900  -6.262 3.79e-10 ***
 avgrate01           0.1427     1.3204   0.108    0.914    
-meanIAT             1.6137     2.7839   0.580    0.562    
-avgrate01:meanIAT   0.5517     3.8006   0.145    0.885    
+meanIAT             1.6137     2.7840   0.580    0.562    
+avgrate01:meanIAT   0.5516     3.8006   0.145    0.885    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -211,7 +211,7 @@ Random effects:
  Groups      Name        Variance Std.Dev. Corr 
  refNum      (Intercept) 0.06876  0.2622        
  playerShort (Intercept) 0.27929  0.5285        
- refCountry  (Intercept) 0.39991  0.6324        
+ refCountry  (Intercept) 0.39990  0.6324        
              avgrate01   0.07322  0.2706   -0.93
 Number of obs: 372880, groups:  
 refNum, 2967; playerShort, 1585; refCountry, 155

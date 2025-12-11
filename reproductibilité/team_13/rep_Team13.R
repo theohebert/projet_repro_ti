@@ -10,7 +10,7 @@
 #Research Question 2: Are soccer referees from countries high in skintone prejudice more likely to award red cards to dark skin toned players?
 
 #Import the data
-setwd("../Data")
+#setwd("../Data")
 
 #data = read.csv(file="~/Documents/StatsAnalysis/Crowdstorming/1. Crowdstorming Dataset 05.10.14.csv")
 

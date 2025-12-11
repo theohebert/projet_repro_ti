@@ -16,14 +16,8 @@ data_reader = csv.DictReader(open('../DATA/CrowdstormingDataJuly1st.csv', 'r')) 
 data = []
 for c,row in enumerate(data_reader):    # Create list of dics from the DictReader object
     data.append(row)
-#print (data[:2])
 
 redCards = [float(row["redCards"]) for row in data]
-
-# Create a histogram
-#p.figure(1)
-#np, bins, patches = p.hist(redCards,bins=5,range=(0,5))
-#p.show()
 
 print(np.var([float(row["redCards"]) for row in data]))
 print(np.mean([float(row["redCards"]) for row in data]))
@@ -32,29 +26,21 @@ print(np.mean([float(row["redCards"]) for row in data]))
 rater1 = [float(row["rater1"]) for row in data if "NA" not in [row["rater1"],row["rater2"]]]
 rater2 = [float(row["rater2"]) for row in data if "NA" not in [row["rater1"],row["rater2"]]]
 
-# Print results of scipy's normality test (based off D'Agostino-Pearson normality test)
-#print(s.stats.normaltest(rater1, axis=0))
-#print(s.stats.normaltest(rater2, axis=0))
-
-#print("Spearman: ", s.spearmanr(rater1,rater2))
 
 df = pandas.read_csv('../DATA/CrowdstormingDataJuly1st.csv')
 keys = ['playerShort','refNum','games','goals','yellowCards','redCards','position','meanIAT','meanExp', 'rater1', 'rater2','club','leagueCountry','weight']
 df = df[keys]
-#print (df[:3])
 
 
 # Drop NA ratings and make an average
 df = df.dropna(subset=['rater1','rater2'])
 df['rating'] = (df['rater1'] + df['rater2']) / 2
-#print(df[:3])
 
 positions = df.groupby(['position'])
 positions['goals'].mean() / positions['games'].mean()
 
 before_drop = len(df)
 df = df.dropna(subset=['position'])  
-#print ("rows dropped: ", before_drop - len(df))
 
 def f(x):
     positionDict = {"Attacking Midfielder" : "Midfield", "Center Back" : "Defense", "Center Forward" : "Offense", "Center Midfielder" : "Midfield", "Defensive Midfielder" : "Defense", "Goalkeeper" : "Goalkeeper", "Left Fullback" : "Defense", "Left Midfielder" : "Midfield", "Left Winger" : "Offense", "Right Fullback" : "Defense", "Right Midfielder" : "Midfield", "Right Winger" : "Offence"}

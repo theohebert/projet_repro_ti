@@ -1,0 +1,232 @@
+[1] "1 / 14.6028"
+[1] "2 / 14.6028"
+[1] "3 / 14.6028"
+[1] "4 / 14.6028"
+[1] "5 / 14.6028"
+[1] "6 / 14.6028"
+[1] "7 / 14.6028"
+[1] "8 / 14.6028"
+[1] "9 / 14.6028"
+[1] "10 / 14.6028"
+[1] "11 / 14.6028"
+[1] "12 / 14.6028"
+[1] "13 / 14.6028"
+[1] "14 / 14.6028"
+
+	Chi-squared test for given probabilities
+
+data:  y
+X-squared = 17.177, df = 4, p-value = 0.001786
+
+  ratings expected observed
+1       1    655.1      579
+2       2    581.4      618
+3       3    135.9      140
+4       4    123.2      141
+5       5     93.4      111
+null device 
+          1 
+[1] "Calculating gm0"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + (1 | playerShort) + (1 | refNum)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20378.8   20411.3  -10186.4   20372.8    372877 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.1810 -0.0701 -0.0619 -0.0556 22.1037 
+
+Random effects:
+ Groups      Name        Variance Std.Dev.
+ refNum      (Intercept) 0.1308   0.3617  
+ playerShort (Intercept) 0.3249   0.5700  
+Number of obs: 372880, groups:  refNum, 2967; playerShort, 1585
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -5.49914    0.03624  -151.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "Calculating gm1"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + (1 | playerShort) + (1 | refNum)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20371.0   20414.3  -10181.5   20363.0    372876 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.1768 -0.0703 -0.0618 -0.0553 22.1516 
+
+Random effects:
+ Groups      Name        Variance Std.Dev.
+ refNum      (Intercept) 0.1298   0.3603  
+ playerShort (Intercept) 0.3215   0.5670  
+Number of obs: 372880, groups:  refNum, 2967; playerShort, 1585
+
+Fixed effects:
+            Estimate Std. Error  z value Pr(>|z|)    
+(Intercept) -5.59313    0.04766 -117.354  < 2e-16 ***
+avgrate01    0.32292    0.10336    3.124  0.00178 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+avgrate01 -0.651
+[1] "Calculating gm2"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + (1 | playerShort) + (1 + avgrate01 |  
+    refNum)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20373.9   20438.9  -10181.0   20361.9    372874 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.1807 -0.0704 -0.0619 -0.0553 22.1750 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.16156  0.4019        
+             avgrate01   0.02098  0.1448   -1.00
+ playerShort (Intercept) 0.32136  0.5669        
+Number of obs: 372880, groups:  refNum, 2967; playerShort, 1585
+
+Fixed effects:
+            Estimate Std. Error  z value Pr(>|z|)    
+(Intercept) -5.59685    0.04868 -114.980  < 2e-16 ***
+avgrate01    0.32954    0.10340    3.187  0.00144 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+avgrate01 -0.671
+optimizer (bobyqa) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')
+
+[1] "Calculating gm3"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + (1 | playerShort) + (1 | refNum) +  
+    (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20333.0   20408.8  -10159.5   20319.0    372873 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2185 -0.0706 -0.0614 -0.0544 28.0611 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06886  0.2624        
+ playerShort (Intercept) 0.27963  0.5288        
+ refCountry  (Intercept) 0.39504  0.6285        
+             avgrate01   0.06777  0.2603   -0.93
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -5.6280     0.1146 -49.105  < 2e-16 ***
+avgrate01     0.3250     0.1190   2.731  0.00632 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+avgrate01 -0.600
+null device 
+          1 
+[1] "Calculating gm4"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 * meanIAT + (1 | playerShort) + (1 |  
+    refNum) + (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20335.7   20433.1  -10158.8   20317.7    372871 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2182 -0.0706 -0.0614 -0.0543 28.0945 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06891  0.2625        
+ playerShort (Intercept) 0.27955  0.5287        
+ refCountry  (Intercept) 0.39332  0.6272        
+             avgrate01   0.06415  0.2533   -0.94
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)        -6.1994     0.9900  -6.262 3.79e-10 ***
+avgrate01           0.1427     1.3204   0.108    0.914    
+meanIAT             1.6137     2.7839   0.580    0.562    
+avgrate01:meanIAT   0.5517     3.8006   0.145    0.885    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) avgr01 menIAT
+avgrate01   -0.752              
+meanIAT     -0.993  0.754       
+avgrt01:IAT  0.744 -0.996 -0.753
+null device 
+          1 
+[1] "Calculating gm5"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 * meanExp + (1 | playerShort) + (1 |  
+    refNum) + (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20334.9   20432.4  -10158.5   20316.9    372871 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2182 -0.0707 -0.0614 -0.0543 28.1404 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06876  0.2622        
+ playerShort (Intercept) 0.27929  0.5285        
+ refCountry  (Intercept) 0.39991  0.6324        
+             avgrate01   0.07322  0.2706   -0.93
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)        -5.7399     0.2473 -23.210   <2e-16 ***
+avgrate01           0.1984     0.2785   0.713    0.476    
+meanExp             0.1822     0.4054   0.450    0.653    
+avgrate01:meanExp   0.3291     0.5524   0.596    0.551    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) avgr01 menExp
+avgrate01   -0.693              
+meanExp     -0.883  0.682       
+avgrt01:mnE  0.592 -0.900 -0.713

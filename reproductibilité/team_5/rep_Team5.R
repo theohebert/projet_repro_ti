@@ -100,7 +100,7 @@ refag<-aggregate(data.games.nona$meanIAT,list(data.games.nona$refCountry),mean)
 colnames(refag)<-c("refCountry","meanIAT")
 
 refag$ranefavgrate01 = NA
-refag$ranefavgrate01<-ranef(gm3,drop=F)$refCountry[,2] 
+refag$ranefavgrate01<-ranef(gm3,drop=FALSE)$refCountry[,2] 
 
 png("results/scatter_random_effects_with_meanIAT.png")
 scatter.smooth(refag$meanIAT,refag$ranefavgrate01,xlab="meanIAT",ylab="Random Efects Avgrate01 from gm3")

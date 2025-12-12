@@ -4,14 +4,8 @@ Nous nous sommes rendu compte qu'en plus des différentes méthodes utilisées,
 le choix des variables de covariances utilisées étaient très changeant.
 Nous avons donc décidé de partir du code de la team_5 puis essayer de changer les variables
 de covariances utilisées pour voir les effets. Nous nous sommes concentré sur utiliser les variables
-choisies par les team qui ont choisi des méthodes du même type (logistic) mais qui sont
-parvenue à un résultat différents de la team_5 (i.e. pas de correlation significatives).
-
-## Team_17
-
-### Covariables
-
-Cette team a utilisé les covariables _PlayerCards_ et _RefereeCards_.
+choisies par 2 teams qui ont choisi des méthodes du même type (logistic) mais qui sont
+parvenues à un résultat différent de la team_5 (i.e. pas de correlation significative).
 
 ## Team_15
 
@@ -21,17 +15,16 @@ Cette team a utilisé la covariable _LeagueCountry_.
 
 ### Résultats
 
-Nous trouvons un OR de 1.350629770 dans un interval de confiance [1.076305929 ,1.69487199].
+Nous trouvons un OR de 1.350629770 dans un intervalle de confiance [1.076305929 ,1.69487199].
 Ainsi nous avons que **l'effet est significatif**.
 
-Cette équipe avait comme résultat un OR de 1.02 dans un interval de confiance de [1.00,1.03].
+Cette équipe avait comme résultat un OR de 1.02 dans un intervalle de confiance de [1.00,1.03].
 Nous avons donc même changé leur conclusion (car 1 était dans l'intervalle et ne l'est plus).
 
 ## Team_31
 
 ### Covariables
 
-s
 Cette team a utilisé les covariables _Position_, _Height_, _Weight_ et _Referee country_.
 
 ### Résultats
@@ -44,7 +37,7 @@ Nous avons donc même changé leur conclusion (car 1 était dans l'intervalle et
 
 ### Complications
 
-Le modèle utilisé par la team_5 s'est avéré trop complexe avec ces covariables en plus
+Le modèle utilisé par la team_5 s'est avérée trop complexe avec ces covariables en plus
 par rapport au nombre de données disponibles. Nous avons donc pris le modèle qu'ils appellent
 gm1 et qui semblait être le second meilleur quand ils ont comparé leurs modèles
 (voir leur papier: https://osf.io/qix4g/files/d4t5b).

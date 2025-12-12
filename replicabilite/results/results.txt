@@ -192,3 +192,9 @@ avgrate01   -0.512
 lgCntryFrnc -0.342 -0.038              
 lgCntryGrmn -0.421  0.087  0.366       
 legCntrySpn -0.426  0.068  0.413  0.434
+                     Coefficient      IC_2.5     IC_97.5
+(Intercept)          0.003470129 0.002699974 0.004459968
+avgrate01            1.350629966 1.076305740 1.694872782
+leagueCountryFrance  1.217343709 0.966907112 1.532645368
+leagueCountryGermany 0.905629480 0.719563322 1.139809006
+leagueCountrySpain   1.146258087 0.926755268 1.417750346

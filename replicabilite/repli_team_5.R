@@ -104,5 +104,5 @@ results_log_odds15 <- data.frame(
   IC_2.5 = ic_log_odds15[rownames(ic_log_odds15) %in% names(coeffs_log_odds15), 1],
   IC_97.5 = ic_log_odds15[rownames(ic_log_odds15) %in% names(coeffs_log_odds15), 2]
 )
-results_OR31 <- exp(results_log_odds15)
+results_OR15 <- exp(results_log_odds15)
 print(results_OR15)

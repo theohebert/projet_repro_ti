@@ -25,3 +25,170 @@ X-squared = 17.177, df = 4, p-value = 0.001786
 4       4    123.2      141
 5       5     93.4      111
 [1] "Calculating gm3"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + (1 | playerShort) + (1 | refNum) +  
+    (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20333.0   20408.8  -10159.5   20319.0    372873 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2185 -0.0706 -0.0614 -0.0544 28.0611 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06886  0.2624        
+ playerShort (Intercept) 0.27963  0.5288        
+ refCountry  (Intercept) 0.39504  0.6285        
+             avgrate01   0.06777  0.2603   -0.93
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -5.6280     0.1146 -49.105  < 2e-16 ***
+avgrate01     0.3250     0.1190   2.731  0.00632 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+avgrate01 -0.600
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + (1 | playerShort) + (1 | refNum) +  
+    (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20333.0   20408.8  -10159.5   20319.0    372873 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2185 -0.0706 -0.0614 -0.0544 28.0611 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06886  0.2624        
+ playerShort (Intercept) 0.27963  0.5288        
+ refCountry  (Intercept) 0.39504  0.6285        
+             avgrate01   0.06777  0.2603   -0.93
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -5.6280     0.1146 -49.105  < 2e-16 ***
+avgrate01     0.3250     0.1190   2.731  0.00632 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+avgrate01 -0.600
+            Coefficient      IC_2.5     IC_97.5
+(Intercept)  0.00359577 0.002872334 0.004501414
+avgrate01    1.38396237 1.096072613 1.747468034
+[1] "Calculating with team 31 covariables"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + position + height + weight + refCountry +  
+    (1 | playerShort) + (1 | refNum)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  18898.4   19092.2   -9431.2   18862.4    350251 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.1609 -0.0711 -0.0606 -0.0528 25.6140 
+
+Random effects:
+ Groups      Name        Variance Std.Dev.
+ refNum      (Intercept) 0.1156   0.3399  
+ playerShort (Intercept) 0.2646   0.5144  
+Number of obs: 350269, groups:  refNum, 2893; playerShort, 1419
+
+Fixed effects:
+                              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -4.800217   1.132023  -4.240 2.23e-05 ***
+avgrate01                     0.331226   0.108330   3.058 0.002231 ** 
+positionCenter Back           0.993317   0.149638   6.638 3.18e-11 ***
+positionCenter Forward        0.303384   0.156719   1.936 0.052886 .  
+positionCenter Midfielder     0.437171   0.199610   2.190 0.028515 *  
+positionDefensive Midfielder  0.458129   0.153742   2.980 0.002884 ** 
+positionGoalkeeper            0.601034   0.174226   3.450 0.000561 ***
+positionLeft Fullback         0.537436   0.164935   3.258 0.001120 ** 
+positionLeft Midfielder       0.357857   0.183330   1.952 0.050940 .  
+positionLeft Winger          -0.010310   0.221804  -0.046 0.962925    
+positionRight Fullback        0.388044   0.169746   2.286 0.022253 *  
+positionRight Midfielder     -0.031154   0.219578  -0.142 0.887175    
+positionRight Winger          0.377553   0.194815   1.938 0.052622 .  
+height                       -0.008890   0.007956  -1.117 0.263836    
+weight                        0.005153   0.007191   0.717 0.473587    
+refCountry                   -0.002559   0.001347  -1.900 0.057384 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+                             Coefficient      IC_2.5    IC_97.5
+(Intercept)                  0.008227963 0.000894772 0.07566104
+avgrate01                    1.392674359 1.126260111 1.72210829
+positionCenter Back          2.700176380 2.013817352 3.62046363
+positionCenter Forward       1.354434370 0.996228202 1.84143799
+positionCenter Midfielder    1.548321551 1.047014769 2.28965216
+positionDefensive Midfielder 1.581112178 1.169760993 2.13711667
+positionGoalkeeper           1.824003976 1.296357402 2.56641456
+positionLeft Fullback        1.711612341 1.238831212 2.36482321
+positionLeft Midfielder      1.430261492 0.998538926 2.04864115
+positionLeft Winger          0.989742816 0.640800493 1.52869864
+positionRight Fullback       1.474094379 1.056908045 2.05595392
+positionRight Midfielder     0.969326640 0.630325755 1.49064849
+positionRight Winger         1.458710778 0.995732636 2.13695630
+height                       0.991149831 0.975814645 1.00672601
+weight                       1.005166596 0.991099510 1.01943334
+refCountry                   0.997444151 0.994815004 1.00008025
+[1] "Calculating with team 15 covariables"
+Generalized linear mixed model fit by maximum likelihood (Adaptive
+  Gauss-Hermite Quadrature, nAGQ = 0) [glmerMod]
+ Family: binomial  ( logit )
+Formula: redCards ~ 1 + avgrate01 + leagueCountry + (1 | playerShort) +  
+    (1 | refNum) + (1 + avgrate01 | refCountry)
+   Data: data.games.nona
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20331.9   20440.2  -10155.9   20311.9    372870 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-0.2182 -0.0707 -0.0614 -0.0542 26.5148 
+
+Random effects:
+ Groups      Name        Variance Std.Dev. Corr 
+ refNum      (Intercept) 0.06845  0.2616        
+ playerShort (Intercept) 0.27861  0.5278        
+ refCountry  (Intercept) 0.34297  0.5856        
+             avgrate01   0.04301  0.2074   -0.92
+Number of obs: 372880, groups:  
+refNum, 2967; playerShort, 1585; refCountry, 155
+
+Fixed effects:
+                     Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          -5.66356    0.12804 -44.233  < 2e-16 ***
+avgrate01             0.30057    0.11584   2.595  0.00947 ** 
+leagueCountryFrance   0.19667    0.11751   1.674  0.09421 .  
+leagueCountryGermany -0.09913    0.11734  -0.845  0.39825    
+leagueCountrySpain    0.13650    0.10846   1.259  0.20817    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) avgr01 lgCntF lgCntG
+avgrate01   -0.512                     
+lgCntryFrnc -0.342 -0.038              
+lgCntryGrmn -0.421  0.087  0.366       
+legCntrySpn -0.426  0.068  0.413  0.434

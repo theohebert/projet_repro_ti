@@ -47,3 +47,25 @@ suggesting that the general skintone bias found in the distribution of red cards
 On ne retrouve donc pas les mêmes résultats du tout mais on retrouve bien le fait que les résultats ne sont pas significatifs. On peut donc arriver à la même conclusion que l'équipe 13 en utilisant leur protocole.
 
 Ces différences dans les résultats peuvent s'expliquer par la version différente de R et le nAGQ qui est à 0 dans notre cas. Etant donné la durée de traitement necessaire avec le nAGQ à 1, nous avons décidé de ne pas aller plus loin dans cette voie.
+
+# Lancer l'expérience
+
+## Executer
+
+Vérifiez que vous avez bien docker d'installé (https://www.docker.com/).
+
+Assurez vous d'être dans le même dossier que ce README.
+
+Build le docker image avec :
+
+```bash
+sudo docker build -t team_13 .
+```
+
+Puis executer avec :
+
+```bash
+sudo docker run -v  ./results:/app/results team_13
+```
+
+Attention : l'execution peut prendre un certain temps.

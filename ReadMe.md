@@ -1,12 +1,12 @@
 # Projet
 
 ## Experience originale
+
 On s'interesse aux résultats trouvés par les équipes ayant participé à cette experience:
 https://journals.sagepub.com/doi/epub/10.1177/2515245917747646
 
 Pour ce qui est du travail original de chaque équipe, on peut y acceder via ce lien:
 https://osf.io/qix4g/files
-
 
 # Reproductibilité
 
@@ -17,3 +17,7 @@ Pour ce qui est des autres équipes, les experiences ont été réalisées en R 
 ## Resultats
 
 Les résultats de nos reproductions se trouvent dans les fichier correspondant au numéro des équipes de l'experience initiale. Pour chaque équipe un ReadMe détail le travail qui a été réalisé et les conclusions que nous avons apporté ainsi que les difficultés que nous avons rencontré. Il faut donc se référer à ces différents ReadMe pour voir nos conclusions.
+
+# Replicabilité
+
+Notre experience de réplicabilité se trouve dans le dossier replicabilite. Un fichier README contient toutes les information sur notre réponse à l'experience originale.

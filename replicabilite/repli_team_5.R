@@ -4,7 +4,7 @@
 require(car)
 require(lme4)
 
-data<-read.csv("../DATA/CrowdstormingDataJuly1st.csv")
+data<-read.csv("CrowdstormingDataJuly1st.csv")
 
 # player-referee combo variable
 data$p_ref <- paste(data$playerShort,data$refNum,sep=".")
